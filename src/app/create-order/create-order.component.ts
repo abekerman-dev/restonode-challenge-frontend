@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router'
+import { Component, OnInit } from '@angular/core'
+import { NgForm } from '@angular/forms'
 
 import { RestaurantService } from '../service/restaurant.service'
 import { Restaurant } from '../model/restaurant.model'
 
-import { MealService } from '../service/meal.service'
 import { Meal } from '../model/meal.model'
 
 import { OrderService } from '../service/order.service'
@@ -25,9 +23,7 @@ export class CreateOrderComponent implements OnInit {
 	submitted = false
 
   constructor(
-    private router: Router,
   	private restaurantService: RestaurantService,
-  	private mealService: MealService,
   	private orderService: OrderService,
   ) {}
 
@@ -37,8 +33,8 @@ export class CreateOrderComponent implements OnInit {
   }
 
   async getMealsByRestaurantId(restaurantId: number) {
-  	const meals = await this.mealService.getMealsByRestaurantId(restaurantId)
-  	this.meals = meals
+  	const restaurant = await this.restaurantService.getRestaurantById(restaurantId)
+  	this.meals = restaurant.meals
   }
 
   selectChangeHandler(event: any) {
@@ -56,8 +52,7 @@ export class CreateOrderComponent implements OnInit {
   		delete this.order.id
   		delete this.order.meals
   		delete this.order.totalAmount
-  		this.confirmationMessage = await this.orderService.createOrder(this.order)
-  		//this.router.navigate(['list-orders'])
+      this.confirmationMessage = await this.orderService.createOrder(this.order)
   	} catch(e) {
   		console.error('error has occurred ->', e)
   	}

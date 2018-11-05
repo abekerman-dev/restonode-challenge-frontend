@@ -1,38 +1,20 @@
 import { Meal } from '../model/meal.model'
-
-export class Destination {
-	constructor(
-		public lat: number = 0,
-		public lng: number = 0
-	) {}
-}
+import { Destination } from '../model/destination.model'
 
 export class Order {
 	constructor(
-		public id: number = 0,
+		public id: number = null,
 		public meals: Meal[] = [],
-	  public totalAmount: number = 0,
 	  public address: string = '',
-		public destination: Destination = new Destination(0, 0)
-	) {}
-}
-
-export class Duration {
-	constructor(
-	  public inSeconds: number,
-	  public humanReadable: string
-	) {}
-}
-
-export class TotalAmount {
-	constructor(
-	  public totalAmount: number,
+	  public destination: Destination = new Destination(),
+		public eta: string = '',
+	  public totalAmount: number = null
 	) {}
 }
 
 export class OrderConfirmationMessage {
 	constructor(
-		public duration: Duration = new Duration(0, ''),
-		public totalAmount: TotalAmount = new TotalAmount(0)
+		public eta: string = '',
+		public totalAmount: number = null
 	) {}
 }

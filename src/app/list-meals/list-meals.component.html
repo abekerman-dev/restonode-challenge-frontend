@@ -1,0 +1,10 @@
+<div class="pad">
+	<a routerLink="/create-meal/{{ restaurantId }}"><button class="btn btn-primary">Create New Meal</button></a>
+</div>
+
+<div id="content">
+	<h1>Meals in <b>{{ restaurant.name }}</b></h1>
+	  <ul *ngFor="let meal of restaurant.meals">
+	    <li>{{ meal.name }}</li>
+	  </ul>
+</div>

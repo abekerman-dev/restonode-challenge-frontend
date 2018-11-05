@@ -1,8 +1,9 @@
+import { environment } from '../../environments/environment'
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Restaurant } from '../model/restaurant.model'
 
-import { environment } from '../../environments/environment'
+import { Restaurant } from '../model/restaurant.model'
+import { Meal } from '../model/meal.model'
 
 @Injectable()
 export class RestaurantService {
@@ -14,13 +15,17 @@ export class RestaurantService {
     return restaurants
   }
 
-  /*async getUserById(id: string): Promise<User> {
-    return (await this.http.get<any>(this.baseUrl + '/' + id).toPromise())
-      .data as User
-  }*/
+  async getRestaurantById(restaurantId: number): Promise<Restaurant> {
+    const restaurant = (await this.http.get<any>(this.baseUrl + '/' + restaurantId).toPromise()) as Restaurant
+    return restaurant
+  }
 
   async createRestaurant(restaurant: Restaurant): Promise<Restaurant> {
     return (await this.http.post<any>(this.baseUrl, restaurant).toPromise()) as Restaurant
+  }
+
+  async addMealToRestaurant(restaurantId: number, meal: Meal): Promise<Meal> {
+    return (await this.http.post<any>(this.baseUrl + '/' + restaurantId + '/meal', meal).toPromise()) as Meal
   }
 
 }

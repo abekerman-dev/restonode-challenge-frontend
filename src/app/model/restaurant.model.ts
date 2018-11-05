@@ -1,9 +1,12 @@
+import { Destination } from '../model/destination.model'
+import { Meal } from './meal.model'
+
 export class Restaurant {
-	id: number
-  name: string
-	location: {
-		lat: number,
-		lng: number
-	}
-  email: string
+	constructor(
+		public id: number = null,
+	  public name: string = null,
+		public location: Destination = new Destination(),
+	  public email: string = null,
+	  public meals: Meal[] = []
+  ) {}
 }

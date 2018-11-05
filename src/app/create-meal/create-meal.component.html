@@ -1,0 +1,51 @@
+<div>
+
+	<div [hidden]="submitted">
+	
+		<h1>New Meal</h1>
+
+		<form #mealForm="ngForm" (ngSubmit)="onSubmit()">
+
+			<div class="pad">
+				<div class="pad">
+					<table>
+						<tr>
+							<td><label for="name">Name</label></td>
+							<td>
+								<input required [(ngModel)]="meal.name" name="name" #name="ngModel" id="name">
+								<div class="alert alert-danger" *ngIf="name.touched && !name.valid">Name is required</div>
+							</td>
+						</tr>
+						<tr>
+							<td><label for="price">Price</label></td>
+							<td>
+								<input required [(ngModel)]="meal.price" name="price" #price="ngModel" id="price">
+								<div class="alert alert-danger" *ngIf="price.touched && !price.valid">Price is required</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div class="pad">
+				<button type="submit" class="btn btn-success" [disabled]="!mealForm.form.valid">Create Meal</button>
+			</div>
+
+		</form>
+
+	</div>
+
+		<div class="pad" [hidden]="!submitted">
+	
+			<div class="pad">
+				<h1>Meal created!</h1>
+				<p class="pad">ID: <b>{{ meal.id }}</b></p>
+			</div>
+
+			<div class="pad">
+				<a routerLink="/list-meals/{{ restaurantId }}"><button class="btn btn-primary">List Meals</button></a>
+			</div>
+
+	</div>
+
+</div>

@@ -1,0 +1,65 @@
+<div>
+
+	<div [hidden]="submitted">
+	
+		<h1>New Restaurant</h1>
+
+		<form #restaurantForm="ngForm" (ngSubmit)="onSubmit()">
+
+			<div class="pad">
+				<div class="pad">
+					<table>
+						<tr>
+							<td><label for="name">Name</label></td>
+							<td>
+								<input required [(ngModel)]="restaurant.name" name="name" #name="ngModel" id="name">
+								<div class="alert alert-danger" *ngIf="name.touched && !name.valid">Name is required</div>
+							</td>
+						</tr>
+						<tr>
+							<td><label for="email">Email</label></td>
+							<td>
+								<input required [(ngModel)]="restaurant.email" name="email" #email="ngModel" id="email">
+								<div class="alert alert-danger" *ngIf="email.touched && !email.valid">Email is required</div>
+							</td>
+						</tr>
+						<tr>
+							<td><label for="lat">Location (Lat)</label></td>
+							<td>
+								<input required [(ngModel)]="restaurant.location.lat" name="lat" #lat="ngModel" id="lat">
+								<div class="alert alert-danger" *ngIf="lat.touched && !lat.valid">Lat is required</div>
+							</td>
+						</tr>
+						<tr>
+							<td><label for="lng">Location (Lng)</label></td>
+							<td>
+								<input required [(ngModel)]="restaurant.location.lng" name="lng" #lng="ngModel" id="lng">
+								<div class="alert alert-danger" *ngIf="lng.touched && !lng.valid">Lng is required</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div class="pad">
+				<button type="submit" class="btn btn-success" [disabled]="!restaurantForm.form.valid">Create Restaurant</button>
+			</div>
+
+		</form>
+
+	</div>
+
+	<div class="pad" [hidden]="!submitted">
+	
+		<div class="pad">
+			<h1>Restaurant created!</h1>
+			<p class="pad">ID: <b>{{ restaurant.id }}</b></p>
+		</div>
+
+		<div class="pad">
+			<a routerLink="/list-restaurants"><button class="btn btn-primary">List Restaurants</button></a>
+		</div>
+
+	</div>
+
+</div>

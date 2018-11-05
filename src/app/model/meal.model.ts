@@ -1,5 +1,7 @@
 export class Meal {
-	id: number
-	name: string
-	price: number
+	constructor(
+	public id: number = null,
+	public name: string = null,
+	public price: number = null
+	) {}
 }

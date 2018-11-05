@@ -2,7 +2,7 @@
 
 	<div [hidden]="submitted">
 	
-		<h1>Create New Order</h1>
+		<h1>New Order</h1>
 
 		<form #orderForm="ngForm" (ngSubmit)="onSubmit()">
 
@@ -21,35 +21,35 @@
 		<div class="pad">
 			<h4>(2) Choose meals from restaurant</h4>
 			<div class="pad">
-				<select required ngModel [(ngModel)]="order.mealIds" name="mealIds" #mealIds="ngModel" id="mealIds" multiple>
+				<select required [(ngModel)]="order.mealIds" name="mealIds" #mealIds="ngModel" id="mealIds" multiple>
 				    <option *ngFor="let meal of meals" [value]="meal.id">{{ meal.name }}</option>
 				</select>
 			</div>
 		</div>
 
 		<div class="pad">
-			<h4>(3) Fill out destination info: address & lat/lng position </h4>
+			<h4>(3) Fill out destination info: address & lat/lng location </h4>
 			<div class="pad">
 				<table>
 					<tr>
 						<td><label for="address">Address</label></td>
 						<td>
-							<input required ngModel [(ngModel)]="order.address" name="address" #address="ngModel" id="address">
+							<input required [(ngModel)]="order.address" name="address" #address="ngModel" id="address">
 							<div class="alert alert-danger" *ngIf="address.touched && !address.valid">Address is required</div>
 						</td>
 					</tr>
 					<tr>
-						<td><label for="address">Lat</label></td>
+						<td><label for="lat">Location (Lat)</label></td>
 						<td>
-							<input required ngModel [(ngModel)]="order.destination.lat" name="lat" #lat="ngModel" id="lat">
+							<input required [(ngModel)]="order.destination.lat" name="lat" #lat="ngModel" id="lat">
 							<div class="alert alert-danger" *ngIf="lat.touched && !lat.valid">Lat is required</div>
 						</td>
 					</tr>
 					<tr>
-						<td><label for="address">Lng</label></td>
+						<td><label for="lng">Location (Lng)</label></td>
 						<td>
-							<input required ngModel [(ngModel)]="order.destination.lng" name="lng" #lng="ngModel" id="lng">
-							<div class="alert alert-danger" *ngIf="lng.touched && !lng.valid">Lat is required</div>
+							<input required [(ngModel)]="order.destination.lng" name="lng" #lng="ngModel" id="lng">
+							<div class="alert alert-danger" *ngIf="lng.touched && !lng.valid">Lng is required</div>
 						</td>
 					</tr>
 				</table>
@@ -68,12 +68,12 @@
 		
 		<div class="pad">
 			<h1>Order created!</h1>
-			<p class="pad">It will arrive in <b>{{ confirmationMessage.duration.inSeconds }} seconds ({{ confirmationMessage.duration.humanReadable }})</b></p>
+			<p class="pad">It will arrive in <b>{{ confirmationMessage.eta }}</b></p>
 			<p class="pad">Total amount: <b>${{ confirmationMessage.totalAmount }}</b></p>
 		</div>
 
 		<div class="pad">
-			<a routerLink="/list-orders">List Orders</a>
+			<a routerLink=""><button class="btn btn-primary">List Orders</button></a>
 		</div>
 
 	</div>

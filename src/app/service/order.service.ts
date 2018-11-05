@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http'
 
 import { Order, OrderConfirmationMessage } from '../model/order.model'
 
-
 @Injectable()
 export class OrderService {
   constructor(private http: HttpClient) {}
@@ -15,13 +14,8 @@ export class OrderService {
     return orders
   }
 
-  /*async getUserById(id: string): Promise<User> {
-    return (await this.http.get<any>(this.baseUrl + '/' + id).toPromise())
-      .data as User
-  }*/
-
   async createOrder(order: Order): Promise<OrderConfirmationMessage> {
-    return (await this.http.post<any>(this.baseUrl, order).toPromise()) as DeliveryOrderConfirmationMessage
+    return (await this.http.post<any>(this.baseUrl, order).toPromise()) as OrderConfirmationMessage
   }
 
 }
