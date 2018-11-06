@@ -36,7 +36,7 @@ In order to get the other two components up and running as well, please refer to
 
 > **Important note:** make sure the REST API component is up and running, either manually or with docker - otherwise the whole usage of this frontend is rendered useless.
 
-Once the previous steps have been accomplished and everything is in place, simply run `ng serve` and point your browser to `http://localhost:4200/`.
+Once the previous steps have been accomplished and everything is in place, simply run `ng serve` and point your browser to [http://localhost:4200/](http://localhost:4200/).
 
 ### Running *with docker*
 
