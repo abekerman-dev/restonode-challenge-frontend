@@ -4,13 +4,15 @@
 
 <div id="content">
 	<h1>All Orders</h1>
-	  <ul *ngFor="let order of orders">
-	    <h4>Order #{{ order.id }}</h4>
+		<div id="content" *ngIf="orders">
+		  <ul *ngFor="let order of orders">
+		    <h4>Order #{{ order.id }}</h4>
 
-	    <li *ngFor="let meal of order.meals">
-	    	{{ meal.name }} - ${{ meal.price }}
-	    </li>
+		    <li *ngFor="let meal of order.meals">
+		    	{{ meal.name }} - ${{ meal.price }}
+		    </li>
 
-	    <h5>Total amount: ${{ order.totalAmount }} - deliver to {{ order.address }}</h5>
-	  </ul>
+		    <h5>Total amount: ${{ order.totalAmount }} - deliver to {{ order.address }}</h5>
+		  </ul>
+		</div>
 </div>

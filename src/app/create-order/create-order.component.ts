@@ -47,14 +47,14 @@ export class CreateOrderComponent implements OnInit {
   }
 
   async onSubmit() { 
-  	this.submitted = true
-  	try {
-  		delete this.order.id
-  		delete this.order.meals
-  		delete this.order.totalAmount
+    try {
+      delete this.order.id
+      delete this.order.meals
+      delete this.order.totalAmount
       this.confirmationMessage = await this.orderService.createOrder(this.order)
+  	  this.submitted = true
   	} catch(e) {
-  		console.error('error has occurred ->', e)
+      window.alert('error creating order: ' + e.error)
   	}
  	}
 

@@ -4,7 +4,9 @@
 
 <div id="content">
 	<h1>All Restaurants</h1>
-	  <ul *ngFor="let restaurant of restaurants">
-	    <li><a routerLink="/list-meals/{{ restaurant.id }}">{{ restaurant.name }}</a></li>
-	  </ul>
+		<div id="content" *ngIf="restaurants">
+		  <ul *ngFor="let restaurant of restaurants">
+		    <li><a routerLink="/list-meals/{{ restaurant.id }}">{{ restaurant.name }}</a></li>
+		  </ul>
+		</div>
 </div>

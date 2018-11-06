@@ -3,8 +3,10 @@
 </div>
 
 <div id="content">
-	<h1>Meals in <b>{{ restaurant.name }}</b></h1>
+	<div id="content" *ngIf="restaurant">
+		<h1>Meals at <b>{{ restaurant.name }}</b></h1>
 	  <ul *ngFor="let meal of restaurant.meals">
-	    <li>{{ meal.name }}</li>
+	    <li>{{ meal.name }} ($ {{ meal.price }})</li>
 	  </ul>
+	</div>
 </div>
