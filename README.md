@@ -7,7 +7,7 @@ This repo contains the frontend of the *Restonode* restaurants management system
 1. [REST API](https://github.com/abekerman-dev/truenorth-restonode-challenge-api)
 2. [Order messaging service](https://github.com/abekerman-dev/truenorth-restonode-challenge-order-messaging-service) 
     
-The former handles the creation of delivery orders among other tasks, whereas the latter handles incoming RabbitMQ messages sent through the former upon creation of restaurant delivery orders.
+The former is in charge of creating delivery orders among other functions, whereas the latter handles incoming RabbitMQ messages sent through the former upon delviery order creation.
 
 ## Running the whole *Restonode* system
 
@@ -26,17 +26,17 @@ So let's explore these alternatives further:
 
 First, clone or download this repo.
 
-**Important note:** make sure the REST API component is up and running, either manually or with docker - otherwise the whole usage of this frontend is rendered useless.
-
 In order to be able to execute this application manually, the following dependencies have to be already installed:
  
   1. [Node.js](https://nodejs.org/en/)
   2. [npm](https://www.npmjs.com/get-npm)
   3. [Angular CLI](https://github.com/angular/angular-cli)
-  
-Once the previous steps have been accomplished and everything is in place, simply run `ng serve` and point your browser to `http://localhost:4200/`.
 
 In order to get the other two components up and running as well, please refer to each repo's *README* file where you'll find instructions on how to do that just like here.
+
+> **Important note:** make sure the REST API component is up and running, either manually or with docker - otherwise the whole usage of this frontend is rendered useless.
+
+Once the previous steps have been accomplished and everything is in place, simply run `ng serve` and point your browser to `http://localhost:4200/`.
 
 ### Running *with docker*
 
