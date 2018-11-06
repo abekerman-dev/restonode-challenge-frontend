@@ -7,7 +7,7 @@ This repo contains the frontend of the *Restonode* restaurants management system
 1. [REST API](https://github.com/abekerman-dev/truenorth-restonode-challenge-api)
 2. [Order messaging service](https://github.com/abekerman-dev/truenorth-restonode-challenge-order-messaging-service) 
     
-The former handles the creation of delivery orders (which produces RabbitMQ messages consumed by this service) among other tasks, whereas the latter handles incoming RabbitMQ messages sent through the REST API upon creation of restaurant delivery orders.
+The former handles the creation of delivery orders among other tasks, whereas the latter handles incoming RabbitMQ messages sent through the former upon creation of restaurant delivery orders.
 
 ## Running the whole *Restonode* system
 
@@ -26,9 +26,9 @@ So let's explore these alternatives further:
 
 First, clone or download this repo.
 
-**Important note:** make sure the REST API component is up and running, either manually or with docker - otherwise the whole usage of this fronted is rendered useless.
+**Important note:** make sure the REST API component is up and running, either manually or with docker - otherwise the whole usage of this frontend is rendered useless.
 
-In order to be able to execute this application manually, some dependencies have to be already installed - they are:
+In order to be able to execute this application manually, the following dependencies have to be already installed:
  
   1. [Node.js](https://nodejs.org/en/)
   2. [npm](https://www.npmjs.com/get-npm)
@@ -52,9 +52,9 @@ Just run `docker-compose up` and it'll trigger the build of a Node.js image with
 
 ### Code
 
-This frontned is just an Angular application generated with Angular CLI 7.0.4, hence we only had to follow Angular's unique way to building a frontend.
+This frontend is just an Angular application generated with Angular CLI 7.0.4, hence I only had to follow Angular's unique way to building a frontend.
 
-The API consists of create and list components for the following models: restaurant, meal and order, along with services to retrieve and push data for those.
+The API consists of *create* and *list* components for the following models: restaurant, meal and order, along with services to get and post data for those.
 
 ## Wishlist, a.k.a what's been left outside and I wish could sometime get in there (lack of time is to blame!)
 
